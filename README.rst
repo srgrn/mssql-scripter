@@ -15,6 +15,16 @@
 
 mssql-scripter
 ===============
+
+PROJECT STATUS
+--------------
+
+**This tool is no longer actively maintained.**  Microsoft SQL Server Management Studio provides
+a Generate Scripts Wizard that provides similar functionality to mssql-scripter.
+
+Description
+-----------
+
 We’re excited to introduce mssql-scripter, a multi-platform command line
 experience for scripting SQL Server databases.
 
