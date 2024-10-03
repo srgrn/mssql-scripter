@@ -1,9 +1,10 @@
 name: Publish Docker image
 on:
   push:
-    branches: [ "dev" ]
-  pull_request:
-    branches: [ "dev" ]
+    branches:
+      - "**"
+    tags:
+      - "v*.*.*"
 
 jobs:
   push_to_registry:
@@ -35,6 +36,14 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: srgrn/mssql-scripter
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha       
 
       - name: Build and push image
         uses: docker/build-push-action@v6.9.0
